@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Auction
 
 # Create your views here.
 
@@ -24,7 +24,7 @@ posts = [
 
 def home(request):
     context = {
-        'posts': posts
+        'auctions': Auction.objects.all()
     }
     return render(request, 'auction/home.html', context)
 
