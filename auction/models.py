@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 
 class Auction(models.Model):
     name = models.CharField(max_length=100)
+    image = models.ImageField(default="default.jpg", upload_to="items-pics")
     description = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
     vendor = models.ForeignKey(User, on_delete=models.CASCADE)
