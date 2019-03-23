@@ -1,5 +1,6 @@
 {% extends "auction/base.html" %}
 {% block content %}
+    <h1 class="mb-3">Auctions by {{ view.kwargs.username }}</h1>
     {% for auction in auctions %}
         <article class="media content-section">
           <img class="rounded-circle article-img" src="{{ auction.vendor.profile.image.url }}">

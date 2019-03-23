@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'auction/main.css' %}">
 
-    {% if title %}<title>Blog - {{ title }}</title>{% else %}<title>Auction Portal - Home</title>{% endif %}
+    {% if title %}<title>Auction - {{ title }}</title>{% else %}<title>Auction Portal - Home</title>{% endif %}
 </head>
     <body>
         <header class="site-header">
@@ -50,11 +50,11 @@
             </div>
             <div class="col-md-4">
               <div class="content-section">
-                <h3>Our Sidebar</h3>
-                <p class='text-muted'>You can put any information here you'd like.
+                <h3>Most Used</h3>
+                <p class='text-muted'>Links to some of the most used functions.
                   <ul class="list-group">
-                    <li class="list-group-item list-group-item-light">Latest Posts</li>
-                    <li class="list-group-item list-group-item-light">Announcements</li>
+                    <a class="list-group-item list-group-item-light" href="{% url 'auction-home' %}">Latest Posts</a>
+                    <a class="list-group-item list-group-item-light" href="{% url 'auction-create' %}">Create Auction</a>
                     <li class="list-group-item list-group-item-light">Calendars</li>
                     <li class="list-group-item list-group-item-light">etc</li>
                   </ul>

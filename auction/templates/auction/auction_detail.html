@@ -1,0 +1,21 @@
+{% extends "auction/base.html" %}
+{% block content %}
+    <article class="media content-section">
+      <img class="rounded-circle article-img" src="{{ object.vendor.profile.image.url }}">
+      <div class="media-body">
+        <div class="article-metadata">
+          <a class="mr-2" href="#">{{ object.vendor }}</a>
+          <small class="text-muted">{{ object.date_posted }}</small>
+          {% if object.vendor == user %}
+              <div>
+              <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'auction-update' object.id %}">Update</a>
+              <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'auction-delete' object.id %}">Delete</a>
+              </div>
+          {% endif %}
+        </div>
+        <h2 class="article-title">{{ object.name }}</h2>
+        <p class="article-content">{{ object.description }}</p>
+        <p class="article-content">Starting Bid: {{ object.bid_min_value }}</p>
+      </div>
+    </article>
+{% endblock content %}

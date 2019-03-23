@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.urls import reverse
 
 from django.contrib.auth.models import User
 
@@ -12,6 +13,9 @@ class Auction(models.Model):
     description = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
     vendor = models.ForeignKey(User, on_delete=models.CASCADE)
-    bid_min_value = models.IntegerField()
-    bid_start_date = models.DateTimeField()
-    bid_end_date = models.DateTimeField()
+    bid_min_value = models.IntegerField("Bid Starting Value")
+    bid_start_date = models.DateField("Bid Starting Date")
+    bid_end_date = models.DateField("Bid Ending Date")
+
+    def get_absolute_url(self):
+        return reverse('auction-detail', kwargs={'pk': self.pk})
